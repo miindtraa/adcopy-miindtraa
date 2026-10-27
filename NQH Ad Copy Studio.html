@@ -1,0 +1,864 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>NQH Ad Copy Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: practitioner's worksheet on the left, the finished Meta pack on the right, like a clinic intake form beside the prescription. */
+:root{
+  --bg:#F2F3EF; --paper:#FBFBF8; --ink:#14302E; --muted:#5B6B68; --line:#D8DDD7;
+  --teal:#1D5752; --teal-soft:#E1ECE9; --gold:#A27A2C; --gold-soft:#F3EAD6;
+  --ok:#2F7A4C; --ok-soft:#E2F1E7; --warn:#9A6A10; --warn-soft:#F7ECD3; --bad:#A3362B; --bad-soft:#F6E1DD;
+  --focus:#2C7A73;
+  --f-display:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1716; --paper:#162120; --ink:#E4EDEA; --muted:#9AAEA9; --line:#2A3A38;
+  --teal:#7FC4BA; --teal-soft:#1D3331; --gold:#D9B26A; --gold-soft:#33291A;
+  --ok:#7DCB97; --ok-soft:#1B3224; --warn:#E4B655; --warn-soft:#352A14; --bad:#EE8B7E; --bad-soft:#3A1F1B;
+  --focus:#7FC4BA; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1716; --paper:#162120; --ink:#E4EDEA; --muted:#9AAEA9; --line:#2A3A38;
+  --teal:#7FC4BA; --teal-soft:#1D3331; --gold:#D9B26A; --gold-soft:#33291A;
+  --ok:#7DCB97; --ok-soft:#1B3224; --warn:#E4B655; --warn-soft:#352A14; --bad:#EE8B7E; --bad-soft:#3A1F1B;
+  --focus:#7FC4BA; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:0 48px}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1320px;margin:0 auto}
+
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-block:28px 18px;border-bottom:1px solid var(--line);margin-bottom:22px}
+.brand small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.brand h1{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,5vw,48px);line-height:1;margin:6px 0 0;letter-spacing:-.01em}
+.brand h1 em{color:var(--teal)}
+.brand p{margin:8px 0 0;color:var(--muted);max-width:58ch}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+.btn{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;cursor:pointer;font-weight:500;font-size:14px;line-height:1.2}
+.btn:hover{border-color:var(--teal)}
+.btn.primary{background:var(--teal);color:var(--paper);border-color:var(--teal)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.small{padding:5px 10px;font-size:13px}
+.btn.ghost{background:transparent}
+
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+@media (min-width:980px){.grid{grid-template-columns:minmax(0,440px) minmax(0,1fr)}
+  .results{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto}}
+
+/* Inputs */
+.example-banner{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--gold-soft);border:1px solid var(--gold);border-radius:var(--r);padding:10px 12px;margin-bottom:12px;font-size:14px}
+details.sec{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);margin-bottom:10px}
+details.sec>summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:baseline;gap:10px}
+details.sec>summary::-webkit-details-marker{display:none}
+.sec-n{font-family:var(--f-mono);font-size:12px;color:var(--gold);font-weight:600}
+.sec-t{font-weight:600}
+.sec-s{color:var(--muted);font-size:13px;margin-left:auto}
+details.sec[open]>summary{border-bottom:1px solid var(--line)}
+.fields{padding:14px 16px 6px;display:grid;gap:14px}
+.f label{display:block;font-weight:600;font-size:14px}
+.f .slot{display:block;font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.f .slot b{color:var(--teal);font-weight:600}
+.f input[type=text],.f select,.f textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+.f textarea{min-height:76px;resize:vertical}
+.f textarea.tall{min-height:150px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media (max-width:520px){.row2{grid-template-columns:minmax(0,1fr)}}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:14px}
+.check input{margin-top:4px}
+.issues{margin:4px 16px 14px;display:grid;gap:6px}
+.issue{font-size:13px;border-radius:8px;padding:7px 10px}
+.issue.red{background:var(--bad-soft);color:var(--bad)}
+.issue.amber{background:var(--warn-soft);color:var(--warn)}
+.issue.green{background:var(--ok-soft);color:var(--ok)}
+.profile-tools{background:var(--paper);border:1px dashed var(--line);border-radius:var(--r);padding:12px 14px;display:grid;gap:8px;font-size:13.5px}
+.profile-tools textarea{width:100%;min-height:70px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px;font-family:var(--f-mono);font-size:12px}
+.saved-note{color:var(--muted);font-size:12.5px}
+
+/* Results */
+.results{background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding:10px 10px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:2;border-radius:14px 14px 0 0}
+.tab{border:0;background:transparent;padding:10px 12px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;font-weight:500;color:var(--muted)}
+.tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--teal)}
+.tab .count{font-family:var(--f-mono);font-size:11.5px;color:var(--gold);margin-left:4px}
+.panel{padding:18px}
+.panel h2{font-family:var(--f-display);font-weight:400;font-size:28px;margin:0 0 4px;line-height:1.1}
+.panel .lede{color:var(--muted);margin:0 0 16px;max-width:70ch}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.chipbtn{border:1px solid var(--line);background:transparent;border-radius:999px;padding:4px 10px;font-size:13px;cursor:pointer}
+.chipbtn[aria-pressed=true]{background:var(--teal-soft);border-color:var(--teal);color:var(--teal);font-weight:600}
+
+.cards{display:grid;gap:14px}
+.card{border:1px solid var(--line);border-radius:var(--r);background:var(--bg);overflow:hidden}
+.card-h{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line)}
+.card-h .nm{font-weight:600;margin-right:auto;min-width:0}
+.pill{font-size:11.5px;border-radius:999px;padding:2px 8px;background:var(--teal-soft);color:var(--teal);font-weight:600;white-space:nowrap}
+.pill.len{background:var(--gold-soft);color:var(--gold)}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.amber{background:var(--warn-soft);color:var(--warn)} .pill.red{background:var(--bad-soft);color:var(--bad)}
+.mono{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.copytext{white-space:pre-wrap;padding:12px 14px;margin:0;font-family:var(--f-body);font-size:14.5px;line-height:1.6;overflow-wrap:anywhere}
+.peek{padding:8px 14px 10px;font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line)}
+.peek mark{background:var(--gold-soft);color:var(--ink);padding:0 2px;border-radius:3px}
+.card-f{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 12px;border-top:1px solid var(--line)}
+.card-f .flags{font-size:12.5px;color:var(--warn);flex:1 1 220px;min-width:0}
+.card-f .flags.red{color:var(--bad)}
+
+.list{display:grid;gap:6px}
+.li{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--bg)}
+.li .t{flex:1;min-width:0;overflow-wrap:anywhere}
+.li .mono.over{color:var(--bad);font-weight:600}
+.li input[type=checkbox]{flex:none}
+
+.hook{border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;background:var(--bg);display:grid;gap:6px}
+.hook .lab{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.hook .say{font-size:15px}
+.hook .ost{font-family:var(--f-mono);font-size:13px;background:var(--ink);color:var(--paper);padding:6px 10px;border-radius:6px;justify-self:start;max-width:100%;overflow-wrap:anywhere}
+.hook .dir{font-size:13px;color:var(--muted);font-style:italic}
+
+.diag{display:grid;gap:8px;margin-bottom:18px}
+.stylebox{border-left:3px solid var(--gold);padding:8px 12px;background:var(--gold-soft);border-radius:0 8px 8px 0;font-size:14px;margin-bottom:16px}
+.stylebox b{display:block;margin-bottom:2px}
+pre.prompt{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:12px;font-family:var(--f-mono);font-size:12px;max-height:420px;overflow:auto;overflow-wrap:anywhere}
+.ai-links{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px}
+.ai-links a{text-decoration:none}
+.summary-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px}
+.sb{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--bg)}
+.sb .k{font-size:12px;color:var(--muted)} .sb .v{font-weight:600}
+footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+.empty{color:var(--muted);font-size:14px;padding:12px;border:1px dashed var(--line);border-radius:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="brand">
+    <small>Miindtraa · NQH Healer Accelerator</small>
+    <h1>NQH Ad Copy <em>Studio</em></h1>
+    <p>Fill in your client, your offer and your video. Get Meta-ready ad copy from 42 ad structures, checked against healer-safe ad rules.</p>
+  </div>
+  <div class="top-actions">
+    <button class="btn" id="btnExample" type="button">Load example</button>
+    <button class="btn" id="btnClear" type="button">Clear all</button>
+  </div>
+</header>
+
+<div class="grid">
+<section class="inputs" aria-label="Your details">
+  <div class="example-banner" id="exampleBanner" hidden>
+    <span><b>You're looking at an example practitioner.</b> Replace it with your own details.</span>
+    <button class="btn small" type="button" id="btnClear2">Start with blank form</button>
+  </div>
+
+  <details class="sec" open>
+    <summary><span class="sec-n">01</span><span class="sec-t">You and your offer</span><span class="sec-s">who's speaking</span></summary>
+    <div class="fields">
+      <div class="row2">
+        <div class="f"><label for="name">Your first name</label><span class="slot">Fits: I'm <b>___</b></span><input type="text" id="name" placeholder="Priya"></div>
+        <div class="f"><label for="weeks">Program length (weeks)</label><span class="slot">Fits: <b>___</b> weeks, one-on-one</span><input type="text" id="weeks" placeholder="12"></div>
+      </div>
+      <div class="f"><label for="credential">How you describe yourself</label><span class="slot">Fits: I'm Priya, <b>___</b></span><input type="text" id="credential" placeholder="an IPHM-accredited NQH practitioner with 9 years of client work"></div>
+      <div class="f"><label for="offer">Program name</label><span class="slot">Fits: That's what <b>___</b> is built for</span><input type="text" id="offer" placeholder="The Steady Evenings Program"></div>
+      <div class="f"><label for="step1">How you work, step one</label><span class="slot">Fits: First we <b>___</b></span><input type="text" id="step1" placeholder="map what is really driving the reactions"></div>
+      <div class="f"><label for="step2">How you work, step two</label><span class="slot">Fits: Then we <b>___</b></span><input type="text" id="step2" placeholder="work on the nervous system and the emotional charge together, every week"></div>
+      <div class="f"><label for="myStory">Your own story (optional, only if true)</label><span class="slot">One or two sentences, opens the confession templates</span><textarea id="myStory" placeholder="I went through this myself at 46. I was the one snapping at everyone and then crying in the bathroom."></textarea></div>
+    </div>
+  </details>
+
+  <details class="sec" open>
+    <summary><span class="sec-n">02</span><span class="sec-t">Your client (ICP)</span><span class="sec-s">the one person</span></summary>
+    <div class="fields">
+      <div class="f"><label for="audience">Who you help</label><span class="slot">Fits: Most <b>___</b> I work with... (plural)</span><input type="text" id="audience" placeholder="women in their late 40s going through the menopause transition"></div>
+      <div class="row2">
+        <div class="f"><label for="audienceShort">Short name for them</label><span class="slot">For headlines, under 25 characters</span><input type="text" id="audienceShort" placeholder="Women in menopause"></div>
+        <div class="f"><label for="you">"If you're..."</label><span class="slot">Fits: If you're <b>___</b></span><input type="text" id="you" placeholder="a woman in your late 40s"></div>
+      </div>
+      <div class="f"><label for="situation">Their everyday situation</label><span class="slot">Fits: If you're..., and <b>___</b></span><textarea id="situation" placeholder="you snap at the people you love, then lie awake at 3 am feeling guilty about it"></textarea></div>
+      <div class="f"><label for="moment">One real moment, told as a scene</label><span class="slot">Opens the story templates. Specific beats general.</span><textarea id="moment" placeholder="She snapped at her daughter over a missing phone charger. Then she sat in the bathroom with the tap running so nobody would hear her cry."></textarea></div>
+      <div class="f"><label for="theirWords">What they say, in their own words</label><span class="slot">A real phrase from DMs or calls, no quote marks</span><input type="text" id="theirWords" placeholder="I don't recognise myself anymore"></div>
+      <div class="f"><label for="selfLie">What they tell themselves</label><span class="slot">Fits: Telling yourself "<b>___</b>"</span><input type="text" id="selfLie" placeholder="It's just a phase, it'll pass"></div>
+      <div class="f"><label for="tried">What they've already tried</label><span class="slot">Fits: You've tried <b>___</b></span><input type="text" id="tried" placeholder="supplements, yoga apps and early nights"></div>
+      <div class="f"><label for="quickFix">The quick fix they reach for</label><span class="slot">Fits: instead of <b>___</b> (one thing)</span><input type="text" id="quickFix" placeholder="another sleep supplement"></div>
+      <div class="row2">
+        <div class="f"><label for="assumed">What they think the problem is</label><span class="slot">Fits: This isn't <b>___</b></span><input type="text" id="assumed" placeholder="a willpower problem"></div>
+        <div class="f"><label for="real">What's really going on</label><span class="slot">Fits: It's <b>___</b></span><input type="text" id="real" placeholder="a nervous system that never gets the signal to settle"></div>
+      </div>
+      <div class="row2">
+        <div class="f"><label for="outcome">What changes for them</label><span class="slot">Fits: Imagine <b>___</b></span><input type="text" id="outcome" placeholder="evenings at home that feel calm again"></div>
+        <div class="f"><label for="outcome2">A second change</label><span class="slot">Fits: And <b>___</b></span><input type="text" id="outcome2" placeholder="sleep that lasts until morning"></div>
+      </div>
+      <div class="f"><label for="notFor">Who this is NOT for</label><span class="slot">Fits: This isn't for you if <b>___</b></span><input type="text" id="notFor" placeholder="you're looking for a replacement for your doctor"></div>
+    </div>
+  </details>
+
+  <details class="sec" open>
+    <summary><span class="sec-n">03</span><span class="sec-t">Proof and call to action</span><span class="sec-s">only what's true</span></summary>
+    <div class="fields">
+      <div class="f"><label for="proof">One real client result (optional)</label><span class="slot">Full sentence. Leave blank and the copy shows a placeholder.</span><textarea id="proof" placeholder="Meera was sleeping four broken hours a night. By week eight she was sleeping through most nights."></textarea></div>
+      <label class="check"><input type="checkbox" id="consent"> <span>I have this client's written permission to use this in an ad</span></label>
+      <div class="row2">
+        <div class="f"><label for="dest">Where the ad sends people</label><span class="slot">Sets the call to action</span>
+          <select id="dest"><option value="call">Booking page for a call</option><option value="training">Free training / VSL page</option><option value="webinar">Free webinar registration</option></select></div>
+        <div class="f"><label for="callName">Name of your call</label><span class="slot">Fits: Book a <b>___</b></span><input type="text" id="callName" placeholder="Clarity Call"></div>
+      </div>
+      <div class="f"><label for="capacity">Real capacity this month (optional)</label><span class="slot">A number only if it's true. Used by the call-out template.</span><input type="text" id="capacity" placeholder="5"></div>
+      <div class="f"><label for="hinglish">A Hinglish line for the emotional moment (optional)</label><span class="slot">Roman script, the way your clients text</span><input type="text" id="hinglish" placeholder="Sab theek hai bolti hoon. Par andar se thak gayi hoon."></div>
+    </div>
+  </details>
+
+  <details class="sec" open>
+    <summary><span class="sec-n">04</span><span class="sec-t">This ad</span><span class="sec-s">your video</span></summary>
+    <div class="fields">
+      <div class="row2">
+        <div class="f"><label for="style">Video style</label><span class="slot">Changes the picks and hooks</span>
+          <select id="style">
+            <option value="talking">Talking head</option><option value="split">Split screen / contrast</option>
+            <option value="broll">Voiceover with B-roll</option><option value="podcast">Podcast / two people</option>
+            <option value="text">Text on screen, no voice</option><option value="testimonial">Client testimonial</option>
+            <option value="whiteboard">Whiteboard / explainer</option><option value="walk">Walk and talk / day in life</option>
+          </select></div>
+        <div class="f"><label for="temp">Who will see it</label><span class="slot">Traffic temperature</span>
+          <select id="temp"><option value="cold">Cold: never heard of me</option><option value="warm">Warm: follows or engaged</option><option value="retarg">Retargeting: watched or visited</option></select></div>
+      </div>
+      <div class="f"><label for="lang">Language</label><span class="slot">Hinglish adds your line from section 03</span>
+        <select id="lang"><option value="en">English</option><option value="hi">Hinglish</option></select></div>
+      <div class="f"><label for="transcript">Video transcript or script</label><span class="slot">Paste it in. Free transcript: upload the video to Gemini and ask "transcribe this word for word".</span><textarea class="tall" id="transcript" placeholder="Paste what you say in the video..."></textarea></div>
+    </div>
+  </details>
+
+  <div class="profile-tools">
+    <b>Save your details</b>
+    <span class="saved-note" id="savedNote">Your details save in this browser automatically. To use them on another device, copy your profile code and paste it there.</span>
+    <div class="bar" style="margin:0">
+      <button class="btn small" type="button" id="btnCopyProfile">Copy my profile code</button>
+      <button class="btn small" type="button" id="btnShowImport">Paste a profile code</button>
+    </div>
+    <div id="importBox" hidden>
+      <textarea id="importText" aria-label="Profile code" placeholder="Paste your profile code here"></textarea>
+      <div class="bar" style="margin:6px 0 0"><button class="btn small primary" type="button" id="btnImport">Load profile</button><span class="saved-note" id="importMsg"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="results" aria-label="Your ad copy">
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="pack" aria-selected="true">Meta pack</button>
+    <button class="tab" role="tab" data-tab="all" aria-selected="false">All templates<span class="count" id="cntAll"></span></button>
+    <button class="tab" role="tab" data-tab="heads" aria-selected="false">Headlines</button>
+    <button class="tab" role="tab" data-tab="hooks" aria-selected="false">Video hooks</button>
+    <button class="tab" role="tab" data-tab="check" aria-selected="false">Video check<span class="count" id="cntCheck"></span></button>
+    <button class="tab" role="tab" data-tab="ai" aria-selected="false">Polish with AI</button>
+  </div>
+
+  <div class="panel" data-panel="pack">
+    <h2>Your Meta pack</h2>
+    <p class="lede">Five primary texts, five headlines and three descriptions, chosen for your video style and audience. Paste them into the multiple text options in Ads Manager.</p>
+    <div class="summary-box" id="packSummary"></div>
+    <div class="bar">
+      <button class="btn primary" type="button" id="btnCopyPack">Copy whole pack</button>
+      <button class="btn" type="button" id="btnShuffle">Show different picks</button>
+    </div>
+    <div class="stylebox" id="styleNote"></div>
+    <div class="cards" id="packCards"></div>
+    <h2 style="font-size:22px;margin-top:22px">Headlines in this pack</h2>
+    <div class="list" id="packHeads" style="margin-top:8px"></div>
+    <h2 style="font-size:22px;margin-top:22px">Descriptions in this pack</h2>
+    <div class="list" id="packDescs" style="margin-top:8px"></div>
+  </div>
+
+  <div class="panel" data-panel="all" hidden>
+    <h2>All 42 templates</h2>
+    <p class="lede">Every structure filled with your details. Add any of them to your pack, up to five.</p>
+    <div class="filters" id="angleFilters"></div>
+    <div class="cards" id="allCards"></div>
+  </div>
+
+  <div class="panel" data-panel="heads" hidden>
+    <h2>Headlines and descriptions</h2>
+    <p class="lede">Headlines show best under 40 characters, descriptions under 30. Tick the ones you want in your pack.</p>
+    <div class="list" id="allHeads"></div>
+    <h2 style="font-size:22px;margin-top:22px">Descriptions</h2>
+    <div class="list" id="allDescs" style="margin-top:8px"></div>
+  </div>
+
+  <div class="panel" data-panel="hooks" hidden>
+    <h2>Hooks for your video</h2>
+    <p class="lede">Use these to re-shoot or re-edit the first three seconds. Each one pairs what you say with the text on screen.</p>
+    <div class="cards" id="hookCards"></div>
+  </div>
+
+  <div class="panel" data-panel="check" hidden>
+    <h2>Video and details check</h2>
+    <p class="lede">What the studio noticed in your transcript and your details. Red items can get an ad rejected or mislead a client. Fix them before you spend.</p>
+    <div class="diag" id="diag"></div>
+  </div>
+
+  <div class="panel" data-panel="ai" hidden>
+    <h2>Polish with AI</h2>
+    <p class="lede">The templates get you a strong draft. For a final polish, copy this prompt into ChatGPT, Gemini or Claude. It carries the healer ad rules, your details, your transcript and your current pack.</p>
+    <div class="bar"><button class="btn primary" type="button" id="btnCopyPrompt">Copy prompt</button></div>
+    <div class="ai-links">
+      <a class="btn small" href="https://chatgpt.com" target="_blank" rel="noopener">Open ChatGPT</a>
+      <a class="btn small" href="https://gemini.google.com" target="_blank" rel="noopener">Open Gemini</a>
+      <a class="btn small" href="https://claude.ai" target="_blank" rel="noopener">Open Claude</a>
+    </div>
+    <pre class="prompt" id="promptText"></pre>
+  </div>
+</section>
+</div>
+
+<footer>
+  <span>Built by Miindtraa for NQH Healer Accelerator participants · @miindtraa</span>
+  <span>Bring your pack to the Phase 4 ad review before you spend.</span>
+</footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+var FIELDS=["name","weeks","credential","offer","step1","step2","myStory","audience","audienceShort","you","situation","moment","theirWords","selfLie","tried","quickFix","assumed","real","outcome","outcome2","notFor","proof","consent","dest","callName","capacity","hinglish","style","temp","lang","transcript"];
+var EXAMPLE={name:"Priya",weeks:"12",credential:"an IPHM-accredited NQH practitioner with 9 years of client work",offer:"The Steady Evenings Program",step1:"map what is really driving the reactions",step2:"work on the nervous system and the emotional charge together, every week",myStory:"I went through this myself at 46. I was the one snapping at everyone, then crying in the bathroom so nobody would see.",audience:"women in their late 40s going through the menopause transition",audienceShort:"Women in menopause",you:"a woman in your late 40s",situation:"you snap at the people you love, then lie awake at 3 am feeling guilty about it",moment:"She snapped at her daughter over a missing phone charger. Then she sat in the bathroom with the tap running so nobody would hear her cry.",theirWords:"I don't recognise myself anymore",selfLie:"It's just a phase, it'll pass",tried:"supplements, yoga apps and early nights",quickFix:"another sleep supplement",assumed:"a willpower problem",real:"a nervous system that never gets the signal to settle",outcome:"evenings at home that feel calm again",outcome2:"sleep that lasts until morning",notFor:"you're looking for a replacement for your doctor",proof:"",consent:false,dest:"call",callName:"Clarity Call",capacity:"",hinglish:"Sab theek hai bolti hoon. Par andar se thak gayi hoon.",style:"talking",temp:"cold",lang:"hi",transcript:"Most women think this is just a phase. It's not. When you're in your late 40s and you snap at your family over nothing, and then lie awake at 3 am feeling guilty, that's not a character flaw. Your nervous system is stuck in alert mode. I work with women in exactly this place. Comment CALM and I'll send you the link to book a Clarity Call."};
+var STORE="nqh-ad-studio-profile-v1";
+var $=function(id){return document.getElementById(id)};
+var shuffleSeed=0, packIds=null, headPick=null, descPick=null, angleFilter="all";
+
+/* ---------- helpers ---------- */
+function clean(s){return String(s||"").replace(/\s*[—–]\s*/g,", ").replace(/\s+/g," ").trim()}
+function clause(s){return clean(s).replace(/[.!?;:,]+$/,"")}
+function sentence(s){s=clean(s);if(!s)return s;return /[.!?"]$/.test(s)?s:s+"."}
+function cap(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s}
+function unq(s){return clause(s).replace(/^["'“‘]+|["'”’]+$/g,"")}
+function readForm(){var o={};FIELDS.forEach(function(k){var el=$(k);if(!el)return;o[k]=el.type==="checkbox"?el.checked:el.value});return o}
+function writeForm(o){FIELDS.forEach(function(k){var el=$(k);if(!el)return;if(el.type==="checkbox")el.checked=!!o[k];else if(o[k]!==undefined)el.value=o[k];else if(el.tagName!=="SELECT")el.value=""})}
+
+function vars(){
+  var r=readForm(), ph=function(v,label){return v?v:"["+label+"]"};
+  var v={};
+  v.N=ph(clause(r.name),"YOUR NAME");
+  v.WK=ph(clause(r.weeks).replace(/\s*weeks?$/i,""),"WEEKS");
+  v.CR=ph(clause(r.credential),"HOW YOU DESCRIBE YOURSELF");
+  v.OF=ph(clause(r.offer),"PROGRAM NAME");
+  v.S1=ph(clause(r.step1),"STEP ONE");
+  v.S2=ph(clause(r.step2),"STEP TWO");
+  v.ST=r.myStory?sentence(r.myStory):"";
+  v.A=ph(clause(r.audience),"WHO YOU HELP");
+  v.AS=ph(clause(r.audienceShort),"SHORT AUDIENCE");
+  v.Y=ph(clause(r.you),"IF YOU'RE...");
+  v.SIT=ph(clause(r.situation),"THEIR SITUATION");
+  v.M=r.moment?sentence(r.moment):"[ONE REAL MOMENT, TOLD AS A SCENE]";
+  v.W=ph(unq(r.theirWords),"THEIR WORDS");
+  v.SL=ph(unq(r.selfLie),"WHAT THEY TELL THEMSELVES");
+  v.TR=ph(clause(r.tried),"WHAT THEY'VE TRIED");
+  v.QF=ph(clause(r.quickFix),"QUICK FIX");
+  v.AC=ph(clause(r.assumed),"WHAT THEY THINK IT IS");
+  v.RC=ph(clause(r.real),"WHAT'S REALLY GOING ON");
+  v.O1=ph(clause(r.outcome),"WHAT CHANGES");
+  v.O2=ph(clause(r.outcome2),"SECOND CHANGE");
+  v.NF="This isn't for you if "+ph(clause(r.notFor),"WHO IT'S NOT FOR")+".";
+  v.NFRAW=ph(clause(r.notFor),"WHO IT'S NOT FOR");
+  v.hasProof=!!(clean(r.proof)&&r.consent);
+  v.PR=v.hasProof?sentence(r.proof):"[ADD YOUR REAL RESULT HERE]";
+  v.CN=clause(r.callName)||"call";
+  v.CAPN=clause(r.capacity);
+  v.CAP=v.CAPN||"[REAL NUMBER]";
+  v.HI=(r.lang==="hi"&&clean(r.hinglish))?sentence(r.hinglish):"";
+  v.hasStory=!!clean(r.myStory);
+  v.transcript=clean(r.transcript);
+  v.HK=firstSentence(r.transcript);
+  v.dest=r.dest; v.style=r.style; v.temp=r.temp; v.lang=r.lang;
+  if(r.dest==="training"){v.CTA="Watch the free training";v.cta="watch the free training";v.CLOSE="Watch the free training first. If it makes sense, book a "+v.CN+" after.";v.BTN="Learn More"}
+  else if(r.dest==="webinar"){v.CTA="Register for the free webinar";v.cta="register for the free webinar";v.CLOSE="Register for the free webinar. Come with one question and I'll answer it live.";v.BTN="Sign Up"}
+  else {v.CTA="Book a "+v.CN;v.cta="book a "+v.CN;v.CLOSE="Book a "+v.CN+". I'll tell you honestly if I'm the right fit.";v.BTN="Book Now"}
+  return v;
+}
+function firstSentence(t){t=String(t||"").trim();if(!t)return"";var m=t.match(/^[\s\S]*?[.!?](\s|$)/);return clean(m?m[0]:t.split("\n")[0])}
+function join(paras){return paras.filter(function(p){return p&&String(p).trim()}).map(function(p){return Array.isArray(p)?p.filter(Boolean).join("\n"):p}).join("\n\n")}
+
+/* ---------- 40 primary text templates ---------- */
+var ANGLES={contrast:"Contrast",loop:"Pattern that returns",tried:"Tried everything",story:"Story",proof:"Proof",objection:"Objection",identity:"Identity call-out"};
+var T=[
+/* Contrast */
+{id:"C1",name:"Most help vs how I work",angle:"contrast",temps:["cold","warm"],styles:["talking","split","whiteboard"],build:function(v){return join([
+ "Most help for "+v.A+" looks like this: "+v.TR+", and a \"see you next month\".",
+ "I work differently. "+v.WK+" weeks, one-on-one, and I stay with you while it changes.",
+ "First we "+v.S1+". Then we "+v.S2+".",
+ v.NF, v.CLOSE])}},
+{id:"C2",name:"Two clients, one difference",angle:"contrast",temps:["cold","warm"],styles:["split","broll","talking"],build:function(v){return join([
+ "Picture two people saying the same words: \""+v.W+"\".",
+ "The first kept trying "+v.QF+". It helped for a while. Then it came back.",
+ "The second stopped handling it as "+v.AC+". We worked on the real cause: "+v.RC+".",
+ v.PR, "Same starting point. Different question.", v.CLOSE])}},
+{id:"C3",name:"Quick fix vs what's underneath",angle:"contrast",temps:["cold"],styles:["split","text","whiteboard"],build:function(v){return join([
+ cap(v.QF)+" calms it for a night. It doesn't touch what's underneath.",
+ "What's underneath is "+v.RC+".",
+ "That's what "+v.OF+" works on, "+v.WK+" weeks, one-on-one.", v.CLOSE])}},
+{id:"C4",name:"Advice vs doing it",angle:"contrast",temps:["warm","retarg"],styles:["talking","walk"],build:function(v){return join([
+ "You already know what you're supposed to do. Everyone has told you.",
+ "What nobody does is stay with you while you actually do it.",
+ "That's the whole difference in "+v.OF+". First we "+v.S1+". Then we "+v.S2+".",
+ v.NF, v.CLOSE])}},
+{id:"C5",name:"Today vs where we're heading",angle:"contrast",temps:["cold","warm"],styles:["split","broll","walk"],build:function(v){return join([
+ "Right now, a normal day looks like this: "+v.SIT+".",
+ "Here's what we work towards: "+v.O1+". And "+v.O2+".",
+ "The gap between the two isn't "+v.AC+". It's "+v.RC+".",
+ "First we "+v.S1+". Then we "+v.S2+".",
+ v.PR, v.NF, v.CLOSE])}},
+{id:"C6",name:"Advice tells, I stay (short)",angle:"contrast",temps:["cold","warm","retarg"],styles:["text","talking","split"],build:function(v){return join([
+ "Advice tells you what to do. I stay with you while you do it. "+v.WK+" weeks, 1:1. "+v.CTA+"."])}},
+{id:"C7",name:"Not another round",angle:"contrast",temps:["cold"],styles:["text","talking"],build:function(v){return join([
+ "Not "+v.QF+" again. Not another round of "+v.TR+".",
+ "This needs a different kind of work, because the problem is "+v.RC+".",
+ "That's what "+v.OF+" is built for.", v.NF, v.CLOSE])}},
+/* Loop */
+{id:"L1",name:"6-Beat Qualifier",angle:"loop",temps:["cold"],styles:["talking","walk","whiteboard"],build:function(v){return join([
+ ["If you're "+v.Y+",","and "+v.SIT+"."],
+ "You've tried "+v.TR+", and it still comes back.", v.NF,
+ "This isn't "+v.AC+". It's "+v.RC+".", v.HI, v.PR,
+ cap(v.cta)+", only if you're ready to work on what's underneath."])}},
+{id:"L2",name:"Better for weeks, then back",angle:"loop",temps:["cold","warm"],styles:["talking","broll"],build:function(v){return join([
+ "It gets better for a few weeks. Then one evening it's back, exactly where it was.",
+ "That's not because you didn't try hard enough. You tried "+v.TR+".",
+ "It comes back because "+v.RC+" was never part of the work.",
+ v.OF+" starts there. First we "+v.S1+". Then we "+v.S2+".", v.NF, v.CLOSE])}},
+{id:"L3",name:"Root cause revelation",angle:"loop",temps:["cold"],styles:["talking","whiteboard"],build:function(v){return join([
+ "Does this sound familiar? "+cap(v.SIT)+".",
+ "You end up trying "+v.QF+". You end up telling yourself \""+v.SL+"\".",
+ "And somewhere you already know this isn't "+v.AC+".",
+ "But knowing that doesn't change the evening. The pattern keeps running underneath, and it will until "+v.RC+" is worked on directly.",
+ v.HI, "I'm "+v.N+", "+v.CR+".", v.CLOSE])}},
+{id:"L4",name:"Stage timeline",angle:"loop",temps:["cold"],styles:["whiteboard","talking"],build:function(v){return join([
+ "It rarely starts big.",
+ "At first it's small: "+v.SIT+".",
+ "Then you start bracing for it, and the people closest to you notice before you do.",
+ "Later, \""+v.W+"\" becomes something you say out loud.",
+ "The way out isn't "+v.QF+", and it isn't more of "+v.TR+". It's working on "+v.RC+".",
+ "First we "+v.S1+". Then we "+v.S2+". It's a "+v.WK+"-week, one-on-one container.",
+ v.NF, v.CLOSE])}},
+{id:"L5",name:"The sentence they keep saying",angle:"loop",temps:["cold","warm"],styles:["talking","text"],build:function(v){return join([
+ "\""+v.SL+".\" Most "+v.A+" I work with said that sentence for years.",
+ "Meanwhile, "+v.SIT+".",
+ "It doesn't announce itself. It just stays.",
+ cap(v.AC)+" was never the issue. "+cap(v.RC)+" was.", v.NF, v.CLOSE])}},
+{id:"L6",name:"Better, then back (short)",angle:"loop",temps:["cold","warm"],styles:["text","talking"],build:function(v){return join([
+ "Better for three weeks, then right back? That's not "+v.AC+". "+v.CTA+"."])}},
+{id:"L7",name:"The 3 am night",angle:"loop",temps:["cold"],styles:["broll","talking","walk"],build:function(v){return join([
+ v.M, v.HI,
+ "If you've had a night like that, you already know it isn't the first one.",
+ "You've tried "+v.TR+". Some of it helped, for a while.",
+ "What doesn't get touched is "+v.RC+". That's where I start.",
+ "I'm "+v.N+". In "+v.OF+" we "+v.S1+", then "+v.S2+".", v.PR, v.NF, v.CLOSE])}},
+/* Tried everything */
+{id:"E1",name:"You've done the sensible things",angle:"tried",temps:["cold","warm"],styles:["talking","podcast"],build:function(v){return join([
+ "You've tried "+v.TR+".",
+ "You've told yourself \""+v.SL+"\".",
+ "None of that is wrong. It just works on the surface, and the pattern lives deeper: "+v.RC+".",
+ v.OF+". "+v.WK+" weeks, one-on-one, built for "+v.A+".", v.NF, v.CLOSE])}},
+{id:"E2",name:"Anti-band-aid",angle:"tried",temps:["cold"],styles:["text","broll","split"],build:function(v){return join([
+ "If "+v.SIT+", "+v.QF+" isn't a long-term fix.",
+ "If you keep telling yourself \""+v.SL+"\", that's the pattern talking.",
+ "If you've already tried "+v.TR+", the missing piece is usually "+v.RC+".",
+ "That's the work inside "+v.OF+". "+v.CTA+"."])}},
+{id:"E3",name:"Not the quick fix again (short)",angle:"tried",temps:["cold","warm"],styles:["text","split"],build:function(v){return join([
+ "Not "+v.QF+" again. "+v.WK+" weeks of 1:1 work on what's underneath. "+v.CTA+"."])}},
+{id:"E4",name:"Cost narration",angle:"tried",temps:["warm","cold"],styles:["talking","walk"],needs:["story"],build:function(v){return join([
+ v.ST||"[YOUR OWN STORY, ONLY IF TRUE]", v.HI,
+ "I tried "+v.TR+". None of it held.",
+ "I didn't need more of the same. I needed someone to work with me on "+v.RC+".",
+ "That's why I built "+v.OF+". "+v.WK+" weeks, one-on-one. First we "+v.S1+". Then we "+v.S2+".",
+ v.PR, v.CLOSE])}},
+{id:"E5",name:"What they've already done",angle:"tried",temps:["cold","warm"],styles:["podcast","talking","whiteboard"],build:function(v){return join([
+ "Most "+v.A+" who message me have already done the sensible things.",
+ cap(v.TR)+".",
+ "They come to me with one sentence: \""+v.W+"\".",
+ "Here's what usually hasn't been looked at: "+v.RC+".",
+ "First we "+v.S1+". Then we "+v.S2+".", v.NF, v.CLOSE])}},
+{id:"E6",name:"Every answer sounds the same",angle:"tried",temps:["cold"],styles:["talking","text"],build:function(v){return join([
+ "Every answer out there sounds the same. Try harder. Think positive.",
+ "If that worked, you'd already feel better. You've tried "+v.TR+".",
+ "This isn't "+v.AC+". It's "+v.RC+", and that needs a different kind of work.",
+ v.NF, v.CLOSE])}},
+/* Story */
+{id:"S1",name:"Opens on the moment",angle:"story",temps:["cold"],styles:["broll","talking","walk"],build:function(v){return join([
+ v.M, v.HI,
+ "I hear some version of this often.",
+ "Most of the people I work with have tried "+v.TR+". Most have told themselves \""+v.SL+"\" for a long time.",
+ "What changes things isn't more effort. It's working on "+v.RC+".",
+ "First we "+v.S1+". Then we "+v.S2+".", v.PR, v.NF, v.CLOSE])}},
+{id:"S2",name:"Opens on their words",angle:"story",temps:["cold","warm"],styles:["talking","text","podcast"],build:function(v){return join([
+ "\""+v.W+".\"",
+ "I hear this sentence a lot from "+v.A+".",
+ "It usually comes after "+v.TR+", and a long stretch of \""+v.SL+"\".",
+ "It isn't "+v.AC+". It's "+v.RC+".", v.CLOSE])}},
+{id:"S3",name:"My own story",angle:"story",temps:["cold","warm"],styles:["talking","walk"],needs:["story"],build:function(v){return join([
+ v.ST||"[YOUR OWN STORY, ONLY IF TRUE]", v.HI,
+ "So when "+v.A+" tell me \""+v.W+"\", I know that place.",
+ "It's why "+v.OF+" works on "+v.RC+", not on "+v.QF+".",
+ "First we "+v.S1+". Then we "+v.S2+".", v.PR, v.CLOSE])}},
+{id:"S4",name:"Imagine",angle:"story",temps:["cold"],styles:["broll","walk"],build:function(v){return join([
+ "Imagine this: "+v.O1+". And "+v.O2+".",
+ "Not because you tried harder, but because "+v.RC+" finally got worked on.",
+ "That's what I work towards with "+v.A+". "+v.WK+" weeks, one-on-one. First we "+v.S1+". Then we "+v.S2+".",
+ "I'm "+v.N+", "+v.CR+".", v.NF, v.CLOSE])}},
+{id:"S5",name:"What the video didn't say",angle:"story",temps:["cold","warm"],styles:["talking","podcast","whiteboard","walk"],needs:["transcript"],build:function(v){return join([
+ "In the video I said: \""+(v.HK||"[FIRST LINE OF YOUR VIDEO]")+"\"",
+ "Here's what I didn't have time to say.",
+ "Most "+v.A+" come to me after "+v.TR+". The reason it didn't hold is "+v.RC+".",
+ "First we "+v.S1+". Then we "+v.S2+".", v.CLOSE])}},
+{id:"S6",name:"Watch till the end (short)",angle:"story",temps:["cold","warm"],styles:["talking","whiteboard","podcast"],needs:["transcript"],build:function(v){return join([
+ "Watch to the end. The part about "+v.RC+" is the one most people miss. "+v.CTA+"."])}},
+{id:"S7",name:"A normal day",angle:"story",temps:["cold"],styles:["walk","broll"],build:function(v){return join([
+ "A normal day for most "+v.A+" I meet:",
+ cap(v.SIT)+".",
+ "And at the end of it, the same thought: \""+v.W+"\".", v.HI,
+ "This isn't "+v.AC+". It's "+v.RC+", and it can be worked on.",
+ "First we "+v.S1+". Then we "+v.S2+".", v.NF, v.CLOSE])}},
+/* Proof */
+{id:"P1",name:"Result first",angle:"proof",temps:["warm","retarg","cold"],styles:["testimonial","talking","podcast"],needs:["proof"],build:function(v){return join([
+ v.PR, v.HI,
+ "Nothing dramatic. We "+v.S1+", then "+v.S2+", for "+v.WK+" weeks.",
+ cap(v.A)+" who say \""+v.W+"\" usually start in the same place.", v.NF, v.CLOSE])}},
+{id:"P2",name:"Result plus CTA (short)",angle:"proof",temps:["warm","retarg"],styles:["testimonial","text"],needs:["proof"],build:function(v){return join([v.PR+" "+v.CTA+"."])}},
+{id:"P3",name:"Who I am, what I see",angle:"proof",temps:["cold","warm"],styles:["talking","podcast","whiteboard"],build:function(v){return join([
+ "I'm "+v.N+", "+v.CR+".",
+ "The sentence I hear most from "+v.A+": \""+v.W+"\".",
+ "Here's what is usually going on underneath: "+v.RC+".",
+ v.CLOSE])}},
+{id:"P4",name:"Call-out",angle:"proof",temps:["warm","retarg"],styles:["talking","testimonial"],needs:["capacity"],build:function(v){return join([
+ "I'm looking for "+v.CAP+" "+v.A+" who want "+v.O1+".",
+ "This month I have "+v.CAP+" spots in "+v.OF+", where we work on "+v.RC+" without relying on "+v.QF+".",
+ "Here's what it looked like for one client: "+v.PR,
+ "If that's you, "+v.cta+"."])}},
+/* Objection / retargeting */
+{id:"O1",name:"The \"too expensive\" myth",angle:"objection",temps:["retarg"],styles:["talking","split"],build:function(v){return join([
+ "Don't work with anyone on this. It costs money.",
+ "Yes, "+v.SIT+". \""+v.SL+"\" might stay the story. But sure, it costs money.",
+ "So what would "+v.O1+" be worth to you? Or "+v.O2+"?",
+ "It's fixable. "+v.CLOSE])}},
+{id:"O2",name:"Still thinking about it",angle:"objection",temps:["retarg"],styles:["talking","text"],build:function(v){return join([
+ "Still thinking about it? Fair. Most people do.",
+ "One question to sit with: if nothing changes, what do the next six months look like?",
+ "If the answer bothers you, "+v.cta+"."])}},
+{id:"O3",name:"Is this for me?",angle:"objection",temps:["retarg","warm"],styles:["talking","text","whiteboard"],build:function(v){return join([
+ "A quick way to know if "+v.OF+" is for you.",
+ "It is, if "+v.SIT+" and you've already tried "+v.TR+".",
+ "It isn't, if "+v.NFRAW+".",
+ "If you're in the first group, "+v.cta+"."])}},
+{id:"O4",name:"What happens on the call",angle:"objection",temps:["warm","retarg"],styles:["talking","walk"],build:function(v){return join([
+ "Here's exactly what happens on a "+v.CN+".",
+ "We talk about where you are right now and what you've already tried. Then I tell you honestly whether "+v.OF+" fits, or what would serve you better.",
+ "No pressure and no script.", v.CTA+"."])}},
+{id:"O5",name:"\"I don't have time\"",angle:"objection",temps:["retarg"],styles:["talking","walk"],build:function(v){return join([
+ "\"I don't have time for this right now.\" I hear that a lot.",
+ "It's one session a week for "+v.WK+" weeks.",
+ "The time is already going somewhere, mostly into managing the same pattern.",
+ v.CLOSE])}},
+{id:"O6",name:"\"I've tried everything\"",angle:"objection",temps:["retarg","warm"],styles:["talking","podcast"],build:function(v){return join([
+ "\"I've already tried everything.\" Maybe you have. "+cap(v.TR)+".",
+ "What's different here is the order. First we "+v.S1+". Then we "+v.S2+".",
+ v.CTA+"."])}},
+/* Identity */
+{id:"I1",name:"If you're... (short)",angle:"identity",temps:["cold"],styles:["text","talking"],build:function(v){return join([
+ "If you're "+v.Y+" and "+v.SIT+", this is for you. "+v.CTA+"."])}},
+{id:"I2",name:"This is for, this isn't for",angle:"identity",temps:["cold","warm"],styles:["talking","text","split"],build:function(v){return join([
+ "This is for "+v.A+".",
+ "Specifically, the ones who'd say \""+v.W+"\".",
+ "It's not for you if "+v.NFRAW+".",
+ "If you're the first kind, "+v.cta+"."])}},
+{id:"I3",name:"Hinglish opener",angle:"identity",temps:["cold","warm"],styles:["talking","text","walk"],needs:["hinglish"],build:function(v){return join([
+ v.HI||"[YOUR HINGLISH LINE]",
+ "If that's what you say when someone asks how you are, keep reading.",
+ "Most "+v.A+" I work with say some version of it. Underneath is usually "+v.RC+".",
+ "First we "+v.S1+". Then we "+v.S2+".", v.NF, v.CLOSE])}},
+{id:"I4",name:"The one-line identity",angle:"identity",temps:["cold"],styles:["text","talking","split"],build:function(v){return join([
+ "For "+v.A+" who are tired of hearing \""+v.SL+"\".",
+ "It isn't "+v.AC+". It's "+v.RC+".",
+ v.WK+" weeks, one-on-one, with "+v.N+". "+v.CTA+"."])}},
+{id:"I5",name:"Name the person, name the night",angle:"identity",temps:["cold"],styles:["broll","talking"],build:function(v){return join([
+ ["If you're "+v.Y+",","this one is for you."],
+ v.M,
+ "You don't need another round of "+v.TR+". You need someone to work with you on "+v.RC+".",
+ v.NF, v.CLOSE])}}
+];
+
+/* ---------- headlines, descriptions, hooks ---------- */
+function headlines(v){return [
+ "It's not "+v.AC, "\""+v.W+"\"", v.WK+" weeks, one-on-one", "For "+v.AS, v.AS+": read this",
+ "When it keeps coming back", "Better for a week, then back?", "Beyond "+v.QF, v.OF,
+ "Work on what's underneath", "Why it keeps coming back", "Advice is easy. Doing it isn't.",
+ "Not another quick fix", cap(v.O1), "Tried "+v.QF+"? Read this", "Start with the real cause",
+ v.dest==="call"?"A "+v.CN+", no pressure":(v.dest==="training"?"Free training for "+v.AS:"Free webinar for "+v.AS),
+ cap(v.O2), "\""+v.SL+"\"? Read this", "1:1 support, week by week"
+]}
+function descriptions(v){var d=[
+ v.WK+"-week 1:1 program", "With "+v.N, "Honest answer, no pressure", "One-on-one, online",
+ v.dest==="call"?"Free "+v.CN:(v.dest==="training"?"Free training":"Free live webinar"),
+ "Book a time that suits you", "Week-by-week support", "By an NQH practitioner"];
+ if(v.CAPN)d.push(v.CAPN+" spots this month");return d}
+function hooks(v){return [
+ {k:"Identity call-out",styles:["talking","walk","text"],say:"If you're "+v.Y+" and "+v.SIT+", stay with me.",ost:v.AS+"?"},
+ {k:"Their words",styles:["talking","text","podcast"],say:"\""+v.W+".\" If you've said that this week, watch this.",ost:"\""+v.W+"\""},
+ {k:"Contrarian",styles:["talking","whiteboard","split"],say:"This isn't "+v.AC+". And handling it like one is why it keeps coming back.",ost:"Not "+v.AC},
+ {k:"Held moment",styles:["broll","walk","talking"],dir:"Open on an action for two seconds of silence before you speak.",say:v.M,ost:"Sound familiar?"},
+ {k:"Tried everything",styles:["talking","podcast"],say:"You've tried "+v.TR+". Here's why it didn't hold.",ost:"Tried everything?"},
+ {k:"The loop",styles:["talking","text","whiteboard"],say:"Better for three weeks, then right back where you started?",ost:"Back again?"},
+ {k:"Self-talk",styles:["talking","text"],say:"\""+v.SL+".\" That's what most "+v.A+" tell themselves.",ost:"\""+v.SL+"\""},
+ {k:"Quick fix",styles:["split","text","broll"],say:cap(v.QF)+" isn't touching this. Here's what's actually going on.",ost:"Beyond "+v.QF},
+ {k:"Split screen",styles:["split"],dir:"Left side: the quick fix. Right side: the real work. Same person, two outcomes.",say:"Same problem. Two very different weeks.",ost:"Quick fix vs real work"},
+ {k:"Podcast question",styles:["podcast"],dir:"Host asks, you answer. Start mid-conversation.",say:"Host: \"Why does it keep coming back?\" You: \"Because nobody works on "+v.RC+".\"",ost:"Why it keeps coming back"},
+ {k:"Text-only opener",styles:["text"],dir:"No voice. Text appears line by line over a calm everyday clip.",say:"(no voice)",ost:"POV: \""+v.W+"\""},
+ {k:"Confession",styles:["talking","walk"],need:"story",say:v.hasStory?v.ST:"[YOUR OWN STORY, ONLY IF TRUE]",ost:"I've been there"},
+ {k:"Whiteboard",styles:["whiteboard"],dir:"Write the assumed cause, cross it out, write the real one.",say:"Everyone thinks it's "+v.AC+". It's this.",ost:"The real cause"},
+ {k:"Result",styles:["testimonial","talking"],need:"proof",say:v.PR,ost:"What changed for her"},
+ {k:"Testimonial cold open",styles:["testimonial"],dir:"Start the clip mid-sentence from a real client interview. Never script their words.",say:"(Client, in their own words, from a real filmed answer)",ost:"\""+v.W+"\""}
+]}
+var STYLES={
+ talking:{label:"Talking head",note:"Captions on for the whole video, and the hook as on-screen text in frame one. Pair it with loop and story copy that continues what you said, not a repeat of it."},
+ split:{label:"Split screen / contrast",note:"Contrast copy fits this best. Keep primary text short to medium so the visual does the work."},
+ broll:{label:"Voiceover with B-roll",note:"Story copy works well here. Open the primary text on a specific moment that matches your footage."},
+ podcast:{label:"Podcast / two people",note:"Make it a real conversation with a real moment. A flat staged interview underperforms. Pair it with tried-everything and proof copy."},
+ text:{label:"Text on screen, no voice",note:"The primary text carries the explanation. Use identity and short contrast copy, and keep on-screen lines under eight words."},
+ testimonial:{label:"Client testimonial",note:"Never write words for your client. Film real answers to: What were things like before? What had you tried? What almost stopped you? What was the first small change you noticed? Who is this for and not for? Best for warm and retargeting audiences."},
+ whiteboard:{label:"Whiteboard / explainer",note:"Root cause and stage timeline copy fit this best. Keep it to two steps, never a full syllabus."},
+ walk:{label:"Walk and talk / day in life",note:"Story and confession copy fit this best. Open on the everyday moment."}
+};
+
+/* ---------- rule checker ---------- */
+var BANNED=["unlock","unleash","discover the secret","the secret to","transform your life","transformation journey","game-changing","game changer","skyrocket","supercharge","empower","elevate","embrace","dive into","delve","harness","revolutionize","revolutionise","holistic transformation","best version of yourself","in today's fast-paced world","it's time to","are you ready to","look no further","take the first step","step into your power","manifest your dream","level up","next level","highest self","abundance awaits"];
+var RULES=[
+ {re:/[—–]/,lvl:"red",msg:"Long dash found. Use a comma or full stop."},
+ {re:/\b(cure[sd]?|curing|reverse[sd]?|reversal|treat(s|ed|ing|ment)?|diagnos\w*|medications?|medicines?|tablets|prescriptions?|hba1c|insulin)\b/i,lvl:"red",msg:"Medical language. Describe everyday wellbeing, never treatment."},
+ {re:/\b(heal(s|ed)?|fix(es|ed)?|eliminate[sd]?|get rid of)\s+(your|my|the|her|his|their)?\s*(thyroid|diabetes|pcos|pcod|cancer|depression|anxiety|bp|blood pressure|infertility|arthritis|migraines?|trauma|ptsd|ocd|adhd|insomnia)\b/i,lvl:"red",msg:"Claims to resolve a condition."},
+ {re:/\b(thyroid|diabetes|pcos|pcod|cancer|depression|bipolar|adhd|ocd|ptsd|hypertension|infertility|arthritis|migraines?|insomnia)\b/i,lvl:"amber",msg:"A condition is named. Frame your work as support alongside the doctor."},
+ {re:/\b(permanent(ly)?|forever|guarantee[ds]?|100\s?%|instant(ly)?|overnight|in just \d+|within \d+ (days|weeks))\b/i,lvl:"red",msg:"Permanence, guarantee or speed claim."},
+ {re:/\b(earn|lakhs?|crores?|double your (income|salary)|make money|passive income)\b/i,lvl:"red",msg:"Income promise."},
+ {re:/\byour (anxiety|depression|trauma|ptsd|pcos|pcod|thyroid|diabetes|debt|divorce|disease|disorder|illness|condition|addiction|weight|infertility|insomnia)\b/i,lvl:"red",msg:"Speaks to a personal health or money condition in second person. Talk about the situation instead."},
+ {re:/\bare you (depressed|anxious|obese|overweight|in debt|traumati[sz]ed)\b/i,lvl:"red",msg:"Asks about a personal attribute."},
+ {re:/\b(the only|india'?s (first|best|no\.? ?1|leading)|the best|no\.? ?1|#1|number one|most trusted)\b/i,lvl:"red",msg:"Superlative you can't prove."},
+ {re:/quantum[^.!?]*\b(heal|cure|anxiety|depression|pain|disease|thyroid|pcos)/i,lvl:"red",msg:"\"Quantum\" next to a health outcome."},
+ {re:/\[[A-Z][^\]]*\]/,lvl:"amber",msg:"Has a placeholder. Fill it with something true, or delete that line."}
+];
+function check(text){
+ var out=[];RULES.forEach(function(r){var m=text.match(r.re);if(m)out.push({lvl:r.lvl,msg:r.msg,hit:m[0]})});
+ var low=text.toLowerCase();BANNED.forEach(function(b){if(low.indexOf(b)>-1)out.push({lvl:"red",msg:"Generic AI phrase.",hit:b})});
+ var frags=text.split(/(?<=[.!?])\s+|\n+/).map(function(s){return s.trim()}).filter(Boolean),run=0;
+ for(var i=0;i<frags.length;i++){var w=frags[i].replace(/[.!?"]/g,"").split(/\s+/).filter(Boolean).length;run=(w>0&&w<=3)?run+1:0;if(run>=3){out.push({lvl:"amber",msg:"Three short fragments in a row reads like AI. Cut one.",hit:frags[i]});break}}
+ return out;
+}
+function status(issues){if(issues.some(function(i){return i.lvl==="red"}))return"red";if(issues.length)return"amber";return"ok"}
+
+/* ---------- build ---------- */
+function lenClass(n){return n<=125?"short":(n<=650?"medium":"long")}
+function buildAll(v){return T.map(function(t){var text=clean2(t.build(v));var n=text.length;var iss=check(text);
+ var missing=(t.needs||[]).filter(function(x){return (x==="story"&&!v.hasStory)||(x==="transcript"&&!v.transcript)||(x==="hinglish"&&!v.HI)||(x==="capacity"&&!v.CAPN)||(x==="proof"&&!v.hasProof)});
+ return {t:t,text:text,n:n,len:lenClass(n),issues:iss,st:status(iss),missing:missing}})}
+function clean2(s){return s.replace(/[—–]/g,",").replace(/[ \t]+\n/g,"\n").replace(/\n{3,}/g,"\n\n").trim()}
+
+function rng(seed){var x=seed*9301+49297;return function(){x=(x*9301+49297)%233280;return x/233280}}
+function autoPack(items,v){
+ var r=rng(shuffleSeed+1);
+ var pool=items.filter(function(it){return it.t.temps.indexOf(v.temp)>-1&&!it.missing.some(function(m){return m!=="proof"})});
+ if(pool.length<5)pool=items.filter(function(it){return !it.missing.some(function(m){return m!=="proof"})});
+ function score(it){var s=0;if(it.t.styles.indexOf(v.style)>-1)s+=3;if(it.t.styles[0]===v.style)s+=1;if(it.missing.length)s-=2;if(it.st==="ok")s+=1;return s+r()*2.5}
+ var scored=pool.map(function(it){return {it:it,s:score(it)}}).sort(function(a,b){return b.s-a.s});
+ var want={short:1,medium:2,long:2},picked=[],angles={};
+ scored.forEach(function(o){var it=o.it;if(picked.length>=5)return;if(want[it.len]>0&&!angles[it.t.angle]){picked.push(it);want[it.len]--;angles[it.t.angle]=1}});
+ scored.forEach(function(o){var it=o.it;if(picked.length>=5)return;if(picked.indexOf(it)<0&&want[it.len]>0){picked.push(it);want[it.len]--}});
+ scored.forEach(function(o){if(picked.length<5&&picked.indexOf(o.it)<0)picked.push(o.it)});
+ var order={short:0,medium:1,long:2};picked.sort(function(a,b){return order[a.len]-order[b.len]});
+ return picked.map(function(it){return it.t.id});
+}
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function card(it,inPack){
+ var flags=it.issues.map(function(i){return i.msg+(i.hit&&i.lvl==="red"?" ("+esc(i.hit)+")":"")});
+ if(it.missing.length)flags.push("Needs: "+it.missing.map(function(m){return{story:"your own story",transcript:"your transcript",hinglish:"a Hinglish line",capacity:"a real capacity number",proof:"a consented client result"}[m]}).join(", "));
+ var stLabel={ok:"Rules pass",amber:"Check",red:"Fix before use"}[it.st];
+ var peek=esc(it.text.slice(0,125)).replace(/\n/g," ");var rest=it.text.length>125?"…":"";
+ return '<article class="card"><div class="card-h"><span class="nm">'+esc(it.t.name)+'</span><span class="pill">'+ANGLES[it.t.angle]+'</span><span class="pill len">'+cap(it.len)+'</span><span class="pill '+(it.st==="ok"?"ok":it.st)+'">'+stLabel+'</span><span class="mono">'+it.n+' chars</span></div>'+
+  '<pre class="copytext">'+esc(it.text)+'</pre>'+
+  '<div class="peek">Before "See more": <mark>'+peek+'</mark>'+rest+'</div>'+
+  '<div class="card-f"><span class="flags '+(it.st==="red"?"red":"")+'">'+(flags.length?esc(flags.join(" · ")):"")+'</span>'+
+  '<button class="btn small" type="button" data-copy="'+it.t.id+'">Copy</button>'+
+  '<button class="btn small '+(inPack?"":"ghost")+'" type="button" data-pack="'+it.t.id+'">'+(inPack?"Remove from pack":"Add to pack")+'</button></div></article>';
+}
+function listRow(text,limit,checked,kind,idx){
+ var n=text.length,over=n>limit;var iss=check(text);
+ return '<div class="li"><input type="checkbox" '+(checked?"checked":"")+' data-'+kind+'="'+idx+'" aria-label="Use in pack"><span class="t">'+esc(text)+'</span><span class="mono '+(over?"over":"")+'">'+n+'/'+limit+'</span>'+(iss.some(function(i){return i.lvl==="red"})?'<span class="pill red">Fix</span>':'')+'<button class="btn small" type="button" data-copytext="'+esc(text)+'">Copy</button></div>';
+}
+
+var current={items:[],heads:[],descs:[],v:null};
+function render(){
+ var v=vars();current.v=v;
+ var items=buildAll(v);current.items=items;
+ if(!packIds||packIds.some(function(id){return !items.some(function(i){return i.t.id===id})}))packIds=autoPack(items,v);
+ var heads=headlines(v).map(clean),descs=descriptions(v).map(clean);current.heads=heads;current.descs=descs;
+ if(!headPick){headPick=pickShort(heads,40,5,v)}
+ if(!descPick){descPick=pickShort(descs,30,3,v)}
+ $("cntAll").textContent=items.length;
+
+ var packItems=packIds.map(function(id){return items.filter(function(i){return i.t.id===id})[0]}).filter(Boolean);
+ $("packCards").innerHTML=packItems.length?packItems.map(function(it){return card(it,true)}).join(""):'<p class="empty">Your pack is empty. Add templates from the All templates tab.</p>';
+ var reds=packItems.filter(function(i){return i.st==="red"}).length,ambers=packItems.filter(function(i){return i.st==="amber"}).length;
+ $("packSummary").innerHTML=
+  sb("Primary texts",packItems.length+" of 5")+sb("Headlines",headPick.length+" of 5")+sb("Descriptions",descPick.length+" of 3")+
+  sb("CTA button",v.BTN)+sb("Rules",reds?reds+" to fix":(ambers?ambers+" to check":"All pass"));
+ var s=STYLES[v.style];$("styleNote").innerHTML="<b>"+esc(s.label)+"</b>"+esc(s.note);
+ $("packHeads").innerHTML=headPick.map(function(i){return listRow(heads[i],40,true,"head",i)}).join("");
+ $("packDescs").innerHTML=descPick.map(function(i){return listRow(descs[i],30,true,"desc",i)}).join("");
+
+ var af=["all"].concat(Object.keys(ANGLES));
+ $("angleFilters").innerHTML=af.map(function(a){return '<button class="chipbtn" type="button" data-angle="'+a+'" aria-pressed="'+(angleFilter===a)+'">'+(a==="all"?"All":ANGLES[a])+'</button>'}).join("");
+ $("allCards").innerHTML=items.filter(function(i){return angleFilter==="all"||i.t.angle===angleFilter}).map(function(it){return card(it,packIds.indexOf(it.t.id)>-1)}).join("");
+
+ $("allHeads").innerHTML=heads.map(function(h,i){return listRow(h,40,headPick.indexOf(i)>-1,"head",i)}).join("");
+ $("allDescs").innerHTML=descs.map(function(d,i){return listRow(d,30,descPick.indexOf(i)>-1,"desc",i)}).join("");
+
+ var hk=hooks(v).map(function(h){h.say=clean(h.say);h.ost=clean(h.ost);return h});
+ var rec=hk.filter(function(h){return h.styles.indexOf(v.style)>-1}),oth=hk.filter(function(h){return h.styles.indexOf(v.style)<0});
+ $("hookCards").innerHTML='<p class="lede" style="margin:0">Best for '+esc(STYLES[v.style].label.toLowerCase())+'</p>'+rec.map(hookCard).join("")+(oth.length?'<p class="lede" style="margin:10px 0 0">Other hooks</p>'+oth.map(hookCard).join(""):"");
+
+ renderDiag(v);
+ $("promptText").textContent=buildPrompt(v,packItems,heads,descs);
+}
+function sb(k,val){return '<div class="sb"><div class="k">'+k+'</div><div class="v">'+esc(val)+'</div></div>'}
+function hookCard(h){return '<div class="hook"><span class="lab">'+esc(h.k)+'</span>'+(h.dir?'<span class="dir">'+esc(h.dir)+'</span>':'')+'<span class="say">'+esc(h.say)+'</span><span class="ost">'+esc(h.ost)+'</span><div><button class="btn small" type="button" data-copytext="'+esc(h.say+"\nOn screen: "+h.ost)+'">Copy</button></div></div>'}
+function pickShort(arr,limit,k,v){var ok=[];arr.forEach(function(t,i){if(t.length<=limit&&t.indexOf("[")<0&&!check(t).some(function(x){return x.lvl==="red"}))ok.push(i)});
+ var r=rng(shuffleSeed+7);var sh=ok.map(function(i){return{i:i,s:r()+(i<6?0.4:0)}}).sort(function(a,b){return b.s-a.s});return sh.slice(0,k).map(function(o){return o.i}).sort(function(a,b){return a-b})}
+
+function renderDiag(v){
+ var out=[],r=readForm();
+ var t=v.transcript;
+ if(!t){out.push(["amber","No transcript yet. Paste your script or transcript to get the video check and the video-continuation templates."])}
+ else{
+  var words=t.split(/\s+/).filter(Boolean).length,secs=Math.round(words/2.5);
+  out.push(["green","About "+words+" words, roughly "+secs+" seconds when spoken."]);
+  var hk=v.HK,hw=hk.split(/\s+/).filter(Boolean).length;
+  if(/^(if you|are you|do you|have you|when you)\b/i.test(hk)||/\?$/.test(hk)||/["“]/.test(hk))out.push(["green","Your first line opens a loop: \""+hk+"\""]);
+  else if(/\b(is the key|starts with|is important|you need to|you should|the truth is|it's not|is just)\b/i.test(hk))out.push(["amber","Your first line reads like a conclusion: \""+hk+"\". People can nod and scroll. Try a hook from the Video hooks tab."]);
+  else out.push(["amber","Check your first line: \""+hk+"\". Does the viewer need the second line to understand it? If not, swap in a hook from the Video hooks tab."]);
+  if(hw>18)out.push(["amber","Your first sentence is "+hw+" words. The first three seconds hold about 8 to 10 spoken words."]);
+  if(!/\b(not for|isn't for|is not for|this isn't|not the right fit)\b/i.test(t))out.push(["amber","Nothing in the video tells the wrong person it isn't for them. One line cuts junk bookings."]);
+  if(!/\b(book|link|click|watch|register|comment|dm|message|tap)\b/i.test(t))out.push(["amber","No clear next step at the end of the video."]);
+  if(v.style==="testimonial")out.push(["amber","Testimonial video: use only your client's real filmed words, with their written consent."]);
+  check(t).forEach(function(i){out.push([i.lvl,"In your video: "+i.msg+(i.hit?" ("+i.hit+")":"")])});
+ }
+ var inputs=["credential","offer","step1","step2","myStory","situation","moment","theirWords","tried","outcome","outcome2","proof","hinglish"].map(function(k){return r[k]}).join(" \n ");
+ check(inputs).filter(function(i){return i.msg.indexOf("placeholder")<0}).forEach(function(i){out.push([i.lvl,"In your details: "+i.msg+(i.hit?" ("+i.hit+")":"")])});
+ if(clean(r.proof)&&!r.consent)out.push(["amber","You've added a client result but haven't ticked written consent, so the copy shows a placeholder instead."]);
+ if(r.lang==="hi"&&!clean(r.hinglish))out.push(["amber","Language is Hinglish but there's no Hinglish line in section 03."]);
+ var reds=out.filter(function(o){return o[0]==="red"}).length;
+ $("cntCheck").textContent=reds?reds:"";
+ $("diag").innerHTML=out.map(function(o){return '<div class="issue '+o[0]+'">'+esc(o[1])+'</div>'}).join("");
+}
+
+function packText(){
+ var c=current,v=c.v,lines=[];
+ var packItems=packIds.map(function(id){return c.items.filter(function(i){return i.t.id===id})[0]}).filter(Boolean);
+ lines.push("META AD PACK · "+(v.OF||"")+"\n");
+ packItems.forEach(function(it,i){lines.push("PRIMARY TEXT "+(i+1)+" ("+it.t.name+", "+it.n+" characters)\n"+it.text+"\n")});
+ lines.push("HEADLINES");headPick.forEach(function(i){lines.push("- "+c.heads[i])});
+ lines.push("\nDESCRIPTIONS");descPick.forEach(function(i){lines.push("- "+c.descs[i])});
+ lines.push("\nCTA BUTTON: "+v.BTN);
+ lines.push("\nMade with NQH Ad Copy Studio by Miindtraa (@miindtraa)");
+ return lines.join("\n");
+}
+function buildPrompt(v,packItems,heads,descs){
+ var r=readForm();
+ return [
+ "You are editing Meta (Facebook and Instagram) ad copy for an NQH-certified practitioner in India who runs a 1:1 practice. Make it sound like the practitioner talking to one person. Do not invent anything.",
+ "",
+ "HARD RULES",
+ "- No em dashes or en dashes. Use commas, full stops or line breaks.",
+ "- No stacked triplets (three parallel phrases or three short fragments in a row). Use two concrete items.",
+ "- No motivational fluff and no generic AI words (unlock, transform your life, empower, elevate, journey, game-changing, it's time to).",
+ "- No medical claims: no cure, heal, reverse or treat a condition, no medicine advice. Frame as wellbeing support alongside the doctor.",
+ "- No 'permanent', 'guaranteed', 'forever' or speed-of-result claims. No income promises.",
+ "- No 'only', 'first', 'best' or 'No.1' claims. No statistics without a source.",
+ "- Never use 'your anxiety', 'your PCOD', 'your debt' style lines. Speak to the situation, not the condition.",
+ "- Keep every [PLACEHOLDER] exactly as it is. Never replace it with an invented result.",
+ "- Every cold ad keeps one line saying who it is not for.",
+ "- Open on a specific moment or an identity line, never a conclusion. Line breaks are the pacing.",
+ "",
+ "PRACTITIONER",
+ "Name: "+v.N+" | "+v.CR,
+ "Program: "+v.OF+", "+v.WK+" weeks, 1:1. Step one: "+v.S1+". Step two: "+v.S2+".",
+ "Client: "+v.A+". Situation: "+v.SIT+".",
+ "Their words: \""+v.W+"\". What they tell themselves: \""+v.SL+"\".",
+ "Already tried: "+v.TR+". Thinks the problem is "+v.AC+". Really: "+v.RC+".",
+ "What changes: "+v.O1+"; "+v.O2+". Not for: "+v.NFRAW+".",
+ "Proof (consented): "+(v.hasProof?v.PR:"none, keep placeholders"),
+ "Call to action: "+v.CLOSE+" CTA button: "+v.BTN+".",
+ "Language: "+(v.lang==="hi"?"Hinglish in Roman script, used at the emotional moment only"+(v.HI?" (their line: "+v.HI+")":""):"English"),
+ "Video style: "+STYLES[v.style].label+". Audience temperature: "+{cold:"cold",warm:"warm",retarg:"retargeting"}[v.temp]+".",
+ "",
+ "VIDEO TRANSCRIPT",
+ v.transcript||"(none given)",
+ "",
+ "CURRENT DRAFTS",
+ packItems.map(function(it,i){return "Primary text "+(i+1)+":\n"+it.text}).join("\n\n"),
+ "",
+ "Headlines: "+headPick.map(function(i){return heads[i]}).join(" | "),
+ "Descriptions: "+descPick.map(function(i){return descs[i]}).join(" | "),
+ "",
+ "TASK",
+ "1. Improve each primary text so it continues the video instead of repeating it, sounds human, and keeps its structure and length band (short under 125 characters, medium 300 to 600, long 700 to 1,500). Show the first 125 characters of each separately.",
+ "2. Give 5 headlines under 40 characters and 3 descriptions under 30 characters, with character counts.",
+ "3. Give 3 new opening lines for the first 3 seconds of the video, each with on-screen text under 8 words.",
+ "4. Check every line against the hard rules and fix anything that breaks them before showing it."
+ ].join("\n");
+}
+
+/* ---------- clipboard, toast, storage ---------- */
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(function(){t.classList.remove("show")},1800)}
+function copy(text,msg){
+ function fallback(){var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(ta);toast(ok?(msg||"Copied"):"Select the text and copy it manually")}
+ try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast(msg||"Copied")},fallback)}else fallback()}catch(e){fallback()}
+}
+function save(){try{localStorage.setItem(STORE,JSON.stringify(readForm()))}catch(e){}}
+function load(){try{var s=localStorage.getItem(STORE);return s?JSON.parse(s):null}catch(e){return null}}
+function isExample(){var r=readForm();return r.name===EXAMPLE.name&&r.offer===EXAMPLE.offer}
+
+/* ---------- events ---------- */
+var deb;
+document.addEventListener("input",function(e){if(!e.target.closest(".inputs"))return;if(e.target.id==="importText")return;clearTimeout(deb);deb=setTimeout(function(){packIds=null;headPick=null;descPick=null;save();$("exampleBanner").hidden=!isExample();render()},250)});
+document.addEventListener("change",function(e){
+ if(e.target.closest(".inputs")&&e.target.id!=="importText"){packIds=null;headPick=null;descPick=null;save();$("exampleBanner").hidden=!isExample();render();return}
+ var h=e.target.getAttribute("data-head"),d=e.target.getAttribute("data-desc");
+ if(h!==null){h=+h;if(e.target.checked){if(headPick.indexOf(h)<0)headPick.push(h)}else headPick=headPick.filter(function(x){return x!==h});headPick.sort(function(a,b){return a-b});render()}
+ if(d!==null){d=+d;if(e.target.checked){if(descPick.indexOf(d)<0)descPick.push(d)}else descPick=descPick.filter(function(x){return x!==d});descPick.sort(function(a,b){return a-b});render()}
+});
+document.addEventListener("click",function(e){
+ var b=e.target.closest("button");if(!b)return;
+ if(b.dataset.tab){document.querySelectorAll(".tab").forEach(function(t){t.setAttribute("aria-selected",t===b)});document.querySelectorAll(".panel").forEach(function(p){p.hidden=p.dataset.panel!==b.dataset.tab});return}
+ if(b.dataset.copy){var it=current.items.filter(function(i){return i.t.id===b.dataset.copy})[0];if(it)copy(it.text);return}
+ if(b.dataset.copytext!==undefined){copy(b.dataset.copytext);return}
+ if(b.dataset.pack){var id=b.dataset.pack;if(packIds.indexOf(id)>-1)packIds=packIds.filter(function(x){return x!==id});else{if(packIds.length>=5){toast("Your pack has 5 already. Remove one first.");return}packIds.push(id)}render();toast(packIds.indexOf(id)>-1?"Added to pack":"Removed from pack");return}
+ if(b.dataset.angle){angleFilter=b.dataset.angle;render();return}
+ switch(b.id){
+  case "btnCopyPack":copy(packText(),"Pack copied");break;
+  case "btnShuffle":shuffleSeed++;packIds=null;headPick=null;descPick=null;render();toast("New picks");break;
+  case "btnCopyPrompt":copy($("promptText").textContent,"Prompt copied");break;
+  case "btnExample":writeForm(EXAMPLE);packIds=null;headPick=null;descPick=null;save();$("exampleBanner").hidden=false;render();toast("Example loaded");break;
+  case "btnClear":case "btnClear2":writeForm({dest:"call",style:"talking",temp:"cold",lang:"en",consent:false});packIds=null;headPick=null;descPick=null;save();$("exampleBanner").hidden=true;render();toast("Form cleared");break;
+  case "btnCopyProfile":copy(JSON.stringify(readForm()),"Profile code copied. Paste it in your notes.");break;
+  case "btnShowImport":$("importBox").hidden=!$("importBox").hidden;break;
+  case "btnImport":try{var o=JSON.parse($("importText").value);writeForm(o);packIds=null;headPick=null;descPick=null;save();$("exampleBanner").hidden=!isExample();render();$("importMsg").textContent="Profile loaded.";}catch(err){$("importMsg").textContent="That code didn't load. Copy the whole code, including the curly brackets at each end."}break;
+ }
+});
+
+var saved=load();
+if(saved){writeForm(saved);$("exampleBanner").hidden=!isExample()}else{writeForm(EXAMPLE);$("exampleBanner").hidden=false}
+render();
+window.__nqh={T:T,vars:vars,buildAll:buildAll,headlines:headlines,descriptions:descriptions,hooks:hooks,check:check,EXAMPLE:EXAMPLE,writeForm:writeForm,render:render};
+})();
+</script>
+
+</body></html>
